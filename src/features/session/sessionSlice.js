@@ -1,27 +1,32 @@
-import { createSlice } from '@reduxjs/toolkit';
-
-export const sessionSlice = createSlice({
-  name: 'session',
-  initialState: {
+"use strict";
+var _a;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.editUser = exports.logOut = exports.signUp = exports.selectIsLoggedIn = exports.selectCurrentUser = exports.sessionSlice = void 0;
+var toolkit_1 = require("@reduxjs/toolkit");
+var initialState = {
     user: {},
-    isLoggedIn: false
-  },
-  reducers: {
-    signUp: (state, action) => {
-      state.user = action.payload;
-      state.isLoggedIn = true;
+    isLoggedIn: false,
+};
+exports.sessionSlice = (0, toolkit_1.createSlice)({
+    name: 'session',
+    initialState: initialState,
+    reducers: {
+        signUp: function (state, action) {
+            state.user = action.payload;
+            state.isLoggedIn = true;
+        },
+        editUser: function (state, action) {
+            state.user = action.payload;
+        },
+        logOut: function (state) {
+            state.user = {};
+            state.isLoggedIn = false;
+        },
     },
-    editUser: (state, action) => {
-      state.user = action.payload;
-    },
-    logOut: (state, action) => {
-      state.user = {};
-      state.isLoggedIn = false;
-    }
-  }
 });
-
-export const selectCurrentUser = (state) => state.session.user;
-export const selectIsLoggedIn = (state) => state.session.isLoggedIn;
-export const { signUp, logOut, editUser } = sessionSlice.actions;
-export default sessionSlice.reducer;
+var selectCurrentUser = function (state) { return state.session.user; };
+exports.selectCurrentUser = selectCurrentUser;
+var selectIsLoggedIn = function (state) { return state.session.isLoggedIn; };
+exports.selectIsLoggedIn = selectIsLoggedIn;
+exports.signUp = (_a = exports.sessionSlice.actions, _a.signUp), exports.logOut = _a.logOut, exports.editUser = _a.editUser;
+exports.default = exports.sessionSlice.reducer;

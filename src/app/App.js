@@ -1,32 +1,27 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(require("react"));
-var About_1 = __importDefault(require("../components/About"));
-var SignUp_1 = __importDefault(require("../components/SignUp"));
-var Articles_1 = __importDefault(require("../components/Articles"));
-var Article_1 = __importDefault(require("../components/Article"));
-var Categories_1 = __importDefault(require("../components/Categories"));
-var Category_1 = __importDefault(require("../components/Category"));
-var Author_1 = __importDefault(require("../components/Author"));
-var Profile_1 = __importDefault(require("../components/Profile"));
-var EditProfileForm_1 = __importDefault(require("../components/EditProfileForm"));
-var Root_1 = __importDefault(require("../components/Root"));
-var react_router_dom_1 = require("react-router-dom");
-require("./App.css");
-var router = (0, react_router_dom_1.createBrowserRouter)((0, react_router_dom_1.createRoutesFromElements)(react_1.default.createElement(react_router_dom_1.Route, { path: "/", element: react_1.default.createElement(Root_1.default, null) },
-    react_1.default.createElement(react_router_dom_1.Route, { path: 'about', element: react_1.default.createElement(About_1.default, null) }),
-    react_1.default.createElement(react_router_dom_1.Route, { path: 'sign-up', element: react_1.default.createElement(SignUp_1.default, null) }),
-    react_1.default.createElement(react_router_dom_1.Route, { path: 'articles', element: react_1.default.createElement(Articles_1.default, null) }),
-    react_1.default.createElement(react_router_dom_1.Route, { path: 'categories', element: react_1.default.createElement(Categories_1.default, null) },
-        react_1.default.createElement(react_router_dom_1.Route, { path: ':name', element: react_1.default.createElement(Category_1.default, null) })),
-    react_1.default.createElement(react_router_dom_1.Route, { path: 'profile', element: react_1.default.createElement(Profile_1.default, null) },
-        react_1.default.createElement(react_router_dom_1.Route, { path: 'edit', element: react_1.default.createElement(EditProfileForm_1.default, null) })),
-    react_1.default.createElement(react_router_dom_1.Route, { path: 'articles/:title', element: react_1.default.createElement(Article_1.default, null) }),
-    react_1.default.createElement(react_router_dom_1.Route, { path: 'authors/:name', element: react_1.default.createElement(Author_1.default, null) }))));
+import React from "react";
+import About from "../components/About";
+import SignUp from "../components/SignUp";
+import Articles from "../components/Articles";
+import Article from "../components/Article";
+import Categories from "../components/Categories";
+import Category from "../components/Category";
+import Author from "../components/Author";
+import Profile from "../components/Profile";
+import EditProfileForm from "../components/EditProfileForm";
+import Root from "../components/Root";
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
+import "./App.css";
+const router = createBrowserRouter(createRoutesFromElements(React.createElement(Route, { path: "/", element: React.createElement(Root, null) },
+    React.createElement(Route, { path: 'about', element: React.createElement(About, null) }),
+    React.createElement(Route, { path: 'sign-up', element: React.createElement(SignUp, null) }),
+    React.createElement(Route, { path: 'articles', element: React.createElement(Articles, null) }),
+    React.createElement(Route, { path: 'categories', element: React.createElement(Categories, null) },
+        React.createElement(Route, { path: ':name', element: React.createElement(Category, null) })),
+    React.createElement(Route, { path: 'profile', element: React.createElement(Profile, null) },
+        React.createElement(Route, { path: 'edit', element: React.createElement(EditProfileForm, null) })),
+    React.createElement(Route, { path: 'articles/:title', element: React.createElement(Article, null) }),
+    React.createElement(Route, { path: 'authors/:name', element: React.createElement(Author, null) }))));
 function App() {
-    return (react_1.default.createElement(react_router_dom_1.RouterProvider, { router: router }));
+    return (React.createElement(RouterProvider, { router: router }));
 }
-exports.default = App;
+export default App;
