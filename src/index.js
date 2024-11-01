@@ -1,21 +1,40 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./app/App";
-import { store } from "./app/store";
-import { Provider } from "react-redux";
-import * as serviceWorker from "./serviceWorker";
-
-const container = document.getElementById('root');
-const root = ReactDOM.createRoot(container);
-root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>
-);
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(require("react"));
+var client_1 = __importDefault(require("react-dom/client"));
+var App_1 = __importDefault(require("./app/App"));
+var store_1 = require("./app/store");
+var react_redux_1 = require("react-redux");
+var serviceWorker = __importStar(require("./serviceWorker"));
+var container = document.getElementById('root');
+var root = client_1.default.createRoot(container);
+root.render(react_1.default.createElement(react_1.default.StrictMode, null,
+    react_1.default.createElement(react_redux_1.Provider, { store: store_1.store },
+        react_1.default.createElement(App_1.default, null))));
 serviceWorker.unregister();

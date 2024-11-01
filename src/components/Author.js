@@ -3,8 +3,6 @@ import { useSelector } from "react-redux";
 import { selectAuthors } from "../features/authors/authorsSlice";
 import { Link, useParams } from "react-router-dom";
 
-// Import useParams from React Router
-
 export default function Author () {
 
   // Extract the `name` URL parameter.
