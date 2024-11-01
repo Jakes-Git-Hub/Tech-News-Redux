@@ -16,7 +16,7 @@
     "include": [
       "src/**/*.ts", 
       "src/**/*.tsx"  
-    ],
+, "src/components/SignUp.js"    ],
     "exclude": [
       "node_modules",
       "dist"
