@@ -1,14 +1,20 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { ARTICLES } from '../../app/data';
-
-export const articlesSlice = createSlice({
-  name: 'articles',
-  initialState: {
-    articles: ARTICLES,
-  },
-  reducers: {}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.filterArticles = exports.selectArticles = exports.articlesSlice = void 0;
+var toolkit_1 = require("@reduxjs/toolkit");
+var data_1 = require("../../app/data");
+var initialState = {
+    articles: data_1.ARTICLES,
+};
+exports.articlesSlice = (0, toolkit_1.createSlice)({
+    name: 'articles',
+    initialState: initialState,
+    reducers: {}
 });
-
-export const selectArticles = (state) => state.articles.articles;
-export const filterArticles = (query, articles) => Object.values(articles).filter(article => article.title.toLowerCase().includes(query.toLowerCase()))
-export default articlesSlice.reducer;
+var selectArticles = function (state) { return state.articles.articles; };
+exports.selectArticles = selectArticles;
+var filterArticles = function (query, articles) {
+    return Object.values(articles).filter(function (article) { return article.title.toLowerCase().includes(query.toLowerCase()); });
+};
+exports.filterArticles = filterArticles;
+exports.default = exports.articlesSlice.reducer;
