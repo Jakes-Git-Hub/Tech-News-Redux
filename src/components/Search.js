@@ -1,32 +1,47 @@
-import React, { useRef } from 'react';
-import { useNavigate, createSearchParams } from 'react-router-dom';
-
-const Search = () => {
-  const searchInputRef = useRef();
-  const navigate = useNavigate();
-
-  const onSearchHandler = (e) => {
-    e.preventDefault();
-
-    const query = {
-      title: searchInputRef.current.value
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
     }
-    const queryString = createSearchParams(query);
-
-    navigate({
-      pathname: '/articles',
-      search: `?${queryString}`
-    })
-  };
-
-  return (
-    <form onSubmit={onSearchHandler} className="search-form">
-      <input type="text" className="search" ref={searchInputRef} />
-      <button type="submit" className="search-button">
-        🔎
-      </button>
-    </form>
-  );
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
 };
-
-export default Search;
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importStar(require("react"));
+var react_router_dom_1 = require("react-router-dom");
+var Search = function () {
+    var searchInputRef = (0, react_1.useRef)(null);
+    var navigate = (0, react_router_dom_1.useNavigate)();
+    var onSearchHandler = function (e) {
+        var _a;
+        e.preventDefault();
+        var query = {
+            title: ((_a = searchInputRef.current) === null || _a === void 0 ? void 0 : _a.value) || ''
+        };
+        var queryString = (0, react_router_dom_1.createSearchParams)(query);
+        navigate({
+            pathname: '/articles',
+            search: "?".concat(queryString)
+        });
+    };
+    return (react_1.default.createElement("form", { onSubmit: onSearchHandler, className: "search-form" },
+        react_1.default.createElement("input", { type: "text", className: "search", ref: searchInputRef }),
+        react_1.default.createElement("button", { type: "submit", className: "search-button" }, "\uD83D\uDD0E")));
+};
+exports.default = Search;
