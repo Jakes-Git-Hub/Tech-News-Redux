@@ -1,21 +1,22 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { selectArticles } from '../features/articles/articlesSlice';
-import { useParams, Link } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
-
-export default function Article () {
-  const articles = useSelector(selectArticles)
-  const { title } = useParams()
-  const article = articles[title]
-
-  return article ? (
-    <div className='article-container'>
-      <h1 className='article-title'>{article.title}</h1>
-      <p>By <Link to={`/authors/${article.author}`}>{article.author}</Link></p>
-      <ReactMarkdown>
-        {article.body}
-      </ReactMarkdown>
-    </div>
-  ) : <p> No article found with that title... </p>
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = Article;
+var react_1 = __importDefault(require("react"));
+var react_redux_1 = require("react-redux");
+var articlesSlice_1 = require("../features/articles/articlesSlice");
+var react_router_dom_1 = require("react-router-dom");
+var react_markdown_1 = __importDefault(require("react-markdown"));
+function Article() {
+    var articles = (0, react_redux_1.useSelector)(articlesSlice_1.selectArticles);
+    var title = (0, react_router_dom_1.useParams)().title;
+    var article = title ? articles[title] : undefined;
+    return article ? (react_1.default.createElement("div", { className: "article-container" },
+        react_1.default.createElement("h1", { className: "article-title" }, article.title),
+        react_1.default.createElement("p", null,
+            "By ",
+            react_1.default.createElement(react_router_dom_1.Link, { to: "/authors/".concat(article.author) }, article.author)),
+        react_1.default.createElement(react_markdown_1.default, null, article.body))) : (react_1.default.createElement("p", null, "No article found with that title..."));
 }
