@@ -28,5 +28,7 @@ var selectCurrentUser = function (state) { return state.session.user; };
 exports.selectCurrentUser = selectCurrentUser;
 var selectIsLoggedIn = function (state) { return state.session.isLoggedIn; };
 exports.selectIsLoggedIn = selectIsLoggedIn;
-exports.signUp = (_a = exports.sessionSlice.actions, _a.signUp), exports.logOut = _a.logOut, exports.editUser = _a.editUser;
+exports.signUp = exports.sessionSlice.actions.signUp;
+exports.logOut = exports.sessionSlice.actions.logOut;
+exports.editUser = exports.sessionSlice.actions.editUser;
 exports.default = exports.sessionSlice.reducer;

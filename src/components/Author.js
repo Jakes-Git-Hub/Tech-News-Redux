@@ -1,27 +1,22 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { selectAuthors } from "../features/authors/authorsSlice";
-import { Link, useParams } from "react-router-dom";
-
-export default function Author () {
-
-  // Extract the `name` URL parameter.
-  const { name } = useParams();
-  const authors = useSelector(selectAuthors)
-  const author = authors[name]
-
-  return (
-    <main>
-      <h1>Articles by {name}</h1>
-      <ul>
-        {author && author.articles ? author.articles.map(slug => (
-          <li key={slug}>
-            <Link to={`/articles/${slug}`}>
-              {slug}
-            </Link>
-          </li>
-        )) : <p> No Articles Found...</p>}
-      </ul>
-    </main>
-  )
-}
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(require("react"));
+var react_redux_1 = require("react-redux");
+var react_router_dom_1 = require("react-router-dom");
+var authorsSlice_1 = require("../features/authors/authorsSlice");
+// Component
+var Author = function () {
+    var name = (0, react_router_dom_1.useParams)().name;
+    var authors = (0, react_redux_1.useSelector)(function (state) { return (0, authorsSlice_1.selectAuthors)(state); });
+    var author = name ? authors[name] : undefined;
+    return (react_1.default.createElement("main", null,
+        react_1.default.createElement("h1", null,
+            "Articles by ",
+            name),
+        react_1.default.createElement("ul", null, author && author.articles ? (author.articles.map(function (slug) { return (react_1.default.createElement("li", { key: slug },
+            react_1.default.createElement(react_router_dom_1.Link, { to: "/articles/".concat(slug) }, slug))); })) : (react_1.default.createElement("p", null, "No Articles Found...")))));
+};
+exports.default = Author;
