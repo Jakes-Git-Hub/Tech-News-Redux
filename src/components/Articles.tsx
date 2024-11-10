@@ -7,10 +7,12 @@ import { Link, useSearchParams } from 'react-router-dom';
 interface Article {
   slug: string;
   title: string;
+  body: string; 
+  author: string; 
 }
 
 export default function Articles() {
-  const articles = useSelector(selectArticles) as Article[];
+  const articles = useSelector(selectArticles) as { [key: string]: Article };
 
   const [searchParams, setSearchParams] = useSearchParams();
   const title = searchParams.get('title');
