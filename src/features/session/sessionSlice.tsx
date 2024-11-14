@@ -33,7 +33,11 @@ export const sessionSlice = createSlice({
   },
 });
 
+export const signUp = sessionSlice.actions.signUp;
+export const editUser = sessionSlice.actions.editUser;
+export const logOut = sessionSlice.actions.logOut;
+
 export const selectCurrentUser = (state: RootState): User => state.session.user;
 export const selectIsLoggedIn = (state: RootState): boolean => state.session.isLoggedIn;
-export const { signUp, logOut, editUser } = sessionSlice.actions;
+
 export default sessionSlice.reducer;
